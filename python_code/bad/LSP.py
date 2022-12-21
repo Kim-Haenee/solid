@@ -12,10 +12,10 @@ class Person(object):
     def __init__(self, position):
         self.position = position
 
-    def walk_North(self, dist):
+    def WalkNorth(self, dist):
         self.position[1] += dist
 
-    def walk_East(self, dist):
+    def WalkEast(self, dist):
         self.position[0] += dist
 
 # `Prisoner` is a logicall natural extension of `Person`
@@ -28,16 +28,16 @@ class Prisoner(Person):
         super(Prisoner, self).__init__(copy.copy(self.PRISON_LOCATION))
         self.is_free = False
 
-# The issue here is that `Prisoner` inherite `walk_North` and `walk_East` methods
+# The issue here is that `Prisoner` inherite `WalkNorth` and `WalkEast` methods
 # from the `Person` which is not logically correct for the `Prisoner` class.
 
 def main():
     prisoner = Prisoner()
-    print("The prisoner trying to walk to north by 10 and east by -3.")
+    print("The prisoner trying to Walk to north by 10 and east by -3.")
     
     try:
-        prisoner.walk_North(10)
-        prisoner.walk_East(-3)
+        prisoner.WalkNorth(10)
+        prisoner.WalkEast(-3)
     except:
         pass
     

@@ -12,15 +12,15 @@ class IEmail(object):
     __metaclass__ = ABCMeta
 
     @abstractmethod
-    def setSender(self, sender):
+    def SetSender(self, sender):
         pass
 
     @abstractmethod
-    def setReceiver(self, receiver):
+    def SetReceiver(self, receiver):
         pass
 
     @abstractmethod
-    def setContent(self, content):
+    def SetContent(self, content):
         pass
 
 class IContent(object):
@@ -46,19 +46,19 @@ class Email(IEmail):
         self.__receiver = None
         self.__content = None
 
-    def setSender(self, sender):
+    def SetSender(self, sender):
         if self.protocol == 'IM':
             self.__sender = ''.join(["I'm ", sender])
         else:
             self.__sender = sender
 
-    def setReceiver(self, receiver):
+    def SetReceiver(self, receiver):
         if self.protocol == 'IM':
             self.__receiver = ''.join(["I'm ", receiver])
         else:
             self.__receiver = receiver
 
-    def setContent(self, content):
+    def SetContent(self, content):
         self.__content = content.getString()
 
     def __repr__(self):
@@ -69,10 +69,10 @@ class Email(IEmail):
 
 def main():
     email = Email('IM')
-    email.setSender('qmal')
-    email.setReceiver('james')
+    email.SetSender('qmal')
+    email.SetReceiver('james')
     content = MyContent('Hello, there!')
-    email.setContent(content)
+    email.SetContent(content)
     print(email)
 
 if __name__ == '__main__':
