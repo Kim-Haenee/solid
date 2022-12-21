@@ -38,7 +38,7 @@ def main():
     try:
         prisoner.walk_North(10)
         prisoner.walk_East(-3)
-    except:
+    except AssertionError:
         pass
     
     print("The location of the prison: {}".format(prisoner.PRISON_LOCATION))
