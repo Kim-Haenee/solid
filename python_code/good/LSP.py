@@ -27,11 +27,12 @@ class Prisoner(object):
 def main():
 
     prisoner = Prisoner()
-    print("The prisoner trying to walk to north by 10 and east by -3.")
+    print("The prisoner trying to Walk to north by 10 and east by -3.")
     
     try:
         prisoner.walk_north(10)
         prisoner.walk_east(-3)
+
     except AssertionError:
         pass
     
