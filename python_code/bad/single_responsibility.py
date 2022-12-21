@@ -3,15 +3,13 @@
 
 from abc import ABCMeta, abstractmethod
 
-class IEmail(object):
-    __metaclass__ = ABCMeta
-
+class IEmail(object, metaclass=ABCMeta):
     @abstractmethod
     def set_sender(self, sender):
         pass
 
     @abstractmethod
-    def set_receiver(self, receiver):
+    def setReceiver(self, receiver):
         pass
 
     @abstractmethod
@@ -33,7 +31,7 @@ class Email(IEmail):
         else:
             self.__sender = sender
 
-    def set_receiver(self, receiver):
+    def setReceiver(self, receiver):
         if self.protocol == 'IM':
             self.__receiver = ''.join(["I'm ", receiver])
         else:
@@ -54,7 +52,7 @@ class Email(IEmail):
 def main():
     email = Email('IM', 'MyML')
     email.set_sender('qmal')
-    email.set_receiver('james')
+    email.setReceiver('james')
     email.set_content('Hello, there!')
     print(email)
 
